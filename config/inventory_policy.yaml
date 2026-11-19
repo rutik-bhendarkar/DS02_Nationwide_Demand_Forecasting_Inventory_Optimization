@@ -1,0 +1,23 @@
+# Part 6 scenario settings. Values marked as defaults/assumptions are examples,
+# not verified retailer contracts or Nexvia business cost parameters.
+inventory:
+  lookback_window_days: 28
+  review_period_days: 7
+  service_level: 0.95
+  z_score: 1.645
+  default_open_purchase_orders_units: 0
+  default_backorders_units: 0
+
+  # Illustrative planning assumptions; replace with actual purchasing data.
+  ordering_cost_per_order_inr: 500
+  annual_holding_cost_rate: 0.25
+  default_minimum_order_qty: 12
+  default_order_multiple: 6
+
+  # Illustrative optimization scenario constraints.
+  budget_inr: 500000
+  capacity_units: 5000
+
+  # Methodology labels are written to the output summary.
+  demand_estimation_method: trailing_28_calendar_day_mean_and_sample_std
+  stock_snapshot_method: latest_observed_closing_stock_per_store_sku

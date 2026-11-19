@@ -1,0 +1,7 @@
+supplier_id,store_sku_lines,selected_order_lines,ordered_units,order_value_inr,suggested_units,unfunded_units
+SUP003,39,3,1554,117354.0,3450,1896
+SUP004,38,3,1260,85632.0,6012,4752
+SUP002,30,2,900,74922.0,2412,1512
+SUP005,34,2,906,70668.0,2574,1668
+SUP001,37,1,378,40824.0,3534,3156
+SUP006,38,0,0,0.0,4686,4686

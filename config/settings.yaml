@@ -1,0 +1,31 @@
+project:
+  name: "DS-02 Nationwide Demand Forecasting and Inventory Optimization"
+  code: "DS-02"
+  environment: "development"
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  sample_data: "data/sample/nationwide_retail_daily_sales_synthetic.csv"
+  forecasts: "outputs/forecasts"
+  reports: "outputs/reports"
+
+schema:
+  required_columns:
+    - date
+    - store_id
+    - sku_id
+    - units_sold
+    - unit_price
+  business_key:
+    - date
+    - store_id
+    - sku_id
+
+sample_data:
+  source_label: "SYNTHETIC_TEST_DATA_NOT_REAL_BUSINESS_DATA"
+  start_date: "2025-01-01"
+  days: 180
+  random_seed: 42
+  stores: 18
+  products: 12

@@ -1,0 +1,7 @@
+category,records,total_units_sold,average_units_per_record,median_units_per_record,total_sales_value,average_unit_price,average_daily_units,median_daily_units,observed_days
+Personal Care,9720,270020,27.78,27.0,40320217.5,205.0,1500.111,1460.0,180
+Staples,9720,186387,19.176,18.0,53990199.5,318.333,1035.483,1004.0,180
+Beverages,9720,138055,14.203,14.0,23162243.5,180.0,766.972,746.0,180
+Snacks,3240,113074,34.899,34.0,10222655.5,95.0,628.189,616.5,180
+Grocery,3240,105797,32.653,32.0,14583657.75,145.0,587.761,575.0,180
+Household,3240,68669,21.194,21.0,20161578.5,310.0,381.494,375.5,180

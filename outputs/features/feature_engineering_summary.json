@@ -1,0 +1,72 @@
+{
+  "status": "success",
+  "part": "Part 3 \u2014 Feature Engineering",
+  "data_source_note": "Bundled synthetic development dataset; not real retailer data.",
+  "input_rows": 38880,
+  "feature_rows": 38880,
+  "modeling_rows": 32832,
+  "warmup_rows_excluded": 6048,
+  "store_count": 18,
+  "sku_count": 12,
+  "date_start": "2025-01-01",
+  "date_end": "2025-06-29",
+  "feature_count": 44,
+  "target_column": "target_units_sold",
+  "missing_feature_cells_full_panel": 14040,
+  "modeling_feature_missing_cells": 0,
+  "modeling_rows_with_missing_features": 0,
+  "lag_days": [
+    1,
+    7,
+    14,
+    28
+  ],
+  "rolling_windows_days": [
+    7,
+    14,
+    28
+  ],
+  "output_files": [
+    "demand_features.csv",
+    "modeling_dataset.csv",
+    "feature_metadata.json",
+    "feature_engineering_summary.json",
+    "splits/train.csv",
+    "splits/validation.csv",
+    "splits/test.csv"
+  ],
+  "chronological_split": {
+    "method": "chronological split by unique target date; no row shuffling",
+    "train_ratio_requested": 0.7,
+    "validation_ratio_requested": 0.15,
+    "test_ratio_requested": 0.15000000000000005,
+    "total_unique_dates": 152,
+    "partitions": {
+      "train": {
+        "rows": 22896,
+        "unique_dates": 106,
+        "start_date": "2025-01-29",
+        "end_date": "2025-05-14"
+      },
+      "validation": {
+        "rows": 4968,
+        "unique_dates": 23,
+        "start_date": "2025-05-15",
+        "end_date": "2025-06-06"
+      },
+      "test": {
+        "rows": 4968,
+        "unique_dates": 23,
+        "start_date": "2025-06-07",
+        "end_date": "2025-06-29"
+      }
+    }
+  },
+  "leakage_controls": [
+    "Historical lag features join exact prior calendar dates, not prior available rows.",
+    "Rolling statistics use a time window closed on the left, excluding the target date.",
+    "Raw same-day units_sold is retained only as target_units_sold, never as a feature.",
+    "Opening, replenishment and closing inventory plus same-day net sales are excluded.",
+    "No interpolation or zero-filling is applied to missing historical observations."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "project": "DS-02 \u2014 Nationwide Demand Forecasting and Inventory Optimization",
+  "generated_at_utc": "2026-11-17T16:28:05.777239+00:00",
+  "project_root": ".",
+  "status": "PASS",
+  "checks_passed": 19,
+  "checks_total": 19,
+  "dashboard_runtime_available": true,
+  "notes": [
+    "The bundled dataset is synthetic development data and is not evidence of real retailer performance.",
+    "Prophet, Darts and PyTorch Forecasting remain optional and are not required for the default LightGBM pipeline.",
+    "The dashboard is delivered as a Dash application; a live server check must be performed on the target Windows machine after dependency installation."
+  ],
+  "checks": [
+    {
+      "check": "file:data/sample/nationwide_retail_daily_sales_synthetic.csv",
+      "passed": true,
+      "detail": "5512206 bytes"
+    },
+    {
+      "check": "file:outputs/eda/eda_dashboard.html",
+      "passed": true,
+      "detail": "4831786 bytes"
+    },
+    {
+      "check": "file:outputs/features/modeling_dataset.csv",
+      "passed": true,
+      "detail": "13952875 bytes"
+    },
+    {
+      "check": "file:outputs/features/splits/train.csv",
+      "passed": true,
+      "detail": "9677026 bytes"
+    },
+    {
+      "check": "file:outputs/features/splits/validation.csv",
+      "passed": true,
+      "detail": "2136191 bytes"
+    },
+    {
+      "check": "file:outputs/features/splits/test.csv",
+      "passed": true,
+      "detail": "2141584 bytes"
+    },
+    {
+      "check": "file:outputs/reports/part4_model_status.json",
+      "passed": true,
+      "detail": "5365 bytes"
+    },
+    {
+      "check": "file:outputs/forecasts/test_lightgbm_predictions.csv",
+      "passed": true,
+      "detail": "747342 bytes"
+    },
+    {
+      "check": "file:outputs/reports/part5_evaluation_summary.json",
+      "passed": true,
+      "detail": "6811 bytes"
+    },
+    {
+      "check": "file:outputs/inventory/inventory_policy.csv",
+      "passed": true,
+      "detail": "98361 bytes"
+    },
+    {
+      "check": "file:outputs/inventory/optimized_purchase_orders.csv",
+      "passed": true,
+      "detail": "102327 bytes"
+    },
+    {
+      "check": "file:outputs/dashboard/part7_dashboard_preview.html",
+      "passed": true,
+      "detail": "79685 bytes"
+    },
+    {
+      "check": "file:scripts/run_dashboard.py",
+      "passed": true,
+      "detail": "1423 bytes"
+    },
+    {
+      "check": "file:setup_windows.ps1",
+      "passed": true,
+      "detail": "2170 bytes"
+    },
+    {
+      "check": "file:requirements-integration.txt",
+      "passed": true,
+      "detail": "320 bytes"
+    },
+    {
+      "check": "synthetic_data_label",
+      "passed": true,
+      "detail": "Bundled sample data is explicitly labelled synthetic."
+    },
+    {
+      "check": "lightgbm_trained_artifact",
+      "passed": true,
+      "detail": "LightGBM status: trained"
+    },
+    {
+      "check": "evaluation_model_selection",
+      "passed": true,
+      "detail": "Selected on validation data: LightGBM"
+    },
+    {
+      "check": "dash_runtime_dependency",
+      "passed": true,
+      "detail": "Dash import available in current environment."
+    }
+  ]
+}

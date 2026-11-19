@@ -1,0 +1,5 @@
+# Core Part 1 dependencies only. Install optional modelling stacks when their phase begins.
+numpy>=1.26,<3.0
+pandas>=2.2,<3.0
+PyYAML>=6.0,<7.0
+python-dotenv>=1.0,<2.0

@@ -1,0 +1,466 @@
+{
+  "part": "Part 2 \u2014 Exploratory Data Analysis",
+  "data_source_note": "Bundled synthetic development dataset; not real retailer data.",
+  "row_count": 38880,
+  "column_count": 21,
+  "date_range": {
+    "start": "2025-01-01",
+    "end": "2025-06-29",
+    "calendar_days": 180
+  },
+  "cardinality": {
+    "store_id": 18,
+    "sku_id": 12,
+    "region": 6,
+    "state": 15,
+    "city": 18,
+    "category": 6
+  },
+  "region_count": 6,
+  "demand": {
+    "total_units_sold": 882002.0,
+    "mean_units_per_record": 22.685236625514403,
+    "median_units_per_record": 20.0,
+    "average_daily_units": 4900.011111111111,
+    "total_sales_value": 162440552.25
+  },
+  "sales_value_basis": "provided net_sales_value column",
+  "quality": {
+    "is_valid_under_part1_contract": true,
+    "missing_cells": 0,
+    "duplicate_business_keys": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "coverage": {
+    "series_count": 216,
+    "series_with_gaps": 0,
+    "mean_coverage_pct": 100.0
+  },
+  "outliers": {
+    "method": "1.5 \u00d7 IQR fences calculated separately for each store_id + sku_id series",
+    "series_analyzed": 216,
+    "outlier_observations": 590,
+    "outlier_observation_pct": 1.5175,
+    "interpretation": "Statistical flags for review, not proof of data errors. Promotions, holidays, stock availability and local events may explain unusual demand."
+  },
+  "inventory_observation": {
+    "closing_stock_zero_rows": 0,
+    "caution": "Zero closing stock is an inventory-pressure indicator only; it does not reveal unobserved lost demand or prove a stockout."
+  },
+  "highlights": {
+    "region_performance": [
+      {
+        "region": "North",
+        "records": 6480,
+        "total_units_sold": 156364,
+        "average_units_per_record": 24.13,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 28749972.0,
+        "average_unit_price": 221.667,
+        "average_daily_units": 868.689,
+        "median_daily_units": 842.5,
+        "observed_days": 180
+      },
+      {
+        "region": "Central",
+        "records": 6480,
+        "total_units_sold": 152456,
+        "average_units_per_record": 23.527,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 28081774.25,
+        "average_unit_price": 221.667,
+        "average_daily_units": 846.978,
+        "median_daily_units": 825.0,
+        "observed_days": 180
+      },
+      {
+        "region": "West",
+        "records": 6480,
+        "total_units_sold": 149942,
+        "average_units_per_record": 23.139,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 27599035.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 833.011,
+        "median_daily_units": 810.0,
+        "observed_days": 180
+      },
+      {
+        "region": "East",
+        "records": 6480,
+        "total_units_sold": 148769,
+        "average_units_per_record": 22.958,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 27370256.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 826.494,
+        "median_daily_units": 811.0,
+        "observed_days": 180
+      },
+      {
+        "region": "South",
+        "records": 6480,
+        "total_units_sold": 146679,
+        "average_units_per_record": 22.636,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 27097592.0,
+        "average_unit_price": 221.667,
+        "average_daily_units": 814.883,
+        "median_daily_units": 793.0,
+        "observed_days": 180
+      },
+      {
+        "region": "Northeast",
+        "records": 6480,
+        "total_units_sold": 127792,
+        "average_units_per_record": 19.721,
+        "median_units_per_record": 17.0,
+        "total_sales_value": 23541922.0,
+        "average_unit_price": 221.667,
+        "average_daily_units": 709.956,
+        "median_daily_units": 694.5,
+        "observed_days": 180
+      }
+    ],
+    "store_performance": [
+      {
+        "store_id": "ST006",
+        "records": 2160,
+        "total_units_sold": 58881,
+        "average_units_per_record": 27.26,
+        "median_units_per_record": 23.0,
+        "total_sales_value": 10804968.25,
+        "average_unit_price": 221.667,
+        "average_daily_units": 327.117,
+        "median_daily_units": 321.5,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST012",
+        "records": 2160,
+        "total_units_sold": 57359,
+        "average_units_per_record": 26.555,
+        "median_units_per_record": 23.0,
+        "total_sales_value": 10544314.25,
+        "average_unit_price": 221.667,
+        "average_daily_units": 318.661,
+        "median_daily_units": 312.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST003",
+        "records": 2160,
+        "total_units_sold": 55925,
+        "average_units_per_record": 25.891,
+        "median_units_per_record": 22.0,
+        "total_sales_value": 10276385.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 310.694,
+        "median_daily_units": 305.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST014",
+        "records": 2160,
+        "total_units_sold": 55043,
+        "average_units_per_record": 25.483,
+        "median_units_per_record": 22.0,
+        "total_sales_value": 10142950.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 305.794,
+        "median_daily_units": 299.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST008",
+        "records": 2160,
+        "total_units_sold": 54015,
+        "average_units_per_record": 25.007,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 9962529.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 300.083,
+        "median_daily_units": 295.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST001",
+        "records": 2160,
+        "total_units_sold": 53924,
+        "average_units_per_record": 24.965,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 9907944.25,
+        "average_unit_price": 221.667,
+        "average_daily_units": 299.578,
+        "median_daily_units": 294.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST007",
+        "records": 2160,
+        "total_units_sold": 53758,
+        "average_units_per_record": 24.888,
+        "median_units_per_record": 22.0,
+        "total_sales_value": 9951552.25,
+        "average_unit_price": 221.667,
+        "average_daily_units": 298.656,
+        "median_daily_units": 292.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST004",
+        "records": 2160,
+        "total_units_sold": 52559,
+        "average_units_per_record": 24.333,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 9714461.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 291.994,
+        "median_daily_units": 286.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST013",
+        "records": 2160,
+        "total_units_sold": 51173,
+        "average_units_per_record": 23.691,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 9431816.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 284.294,
+        "median_daily_units": 280.0,
+        "observed_days": 180
+      },
+      {
+        "store_id": "ST017",
+        "records": 2160,
+        "total_units_sold": 48764,
+        "average_units_per_record": 22.576,
+        "median_units_per_record": 20.0,
+        "total_sales_value": 8966637.5,
+        "average_unit_price": 221.667,
+        "average_daily_units": 270.911,
+        "median_daily_units": 266.5,
+        "observed_days": 180
+      }
+    ],
+    "category_performance": [
+      {
+        "category": "Personal Care",
+        "records": 9720,
+        "total_units_sold": 270020,
+        "average_units_per_record": 27.78,
+        "median_units_per_record": 27.0,
+        "total_sales_value": 40320217.5,
+        "average_unit_price": 205.0,
+        "average_daily_units": 1500.111,
+        "median_daily_units": 1460.0,
+        "observed_days": 180
+      },
+      {
+        "category": "Staples",
+        "records": 9720,
+        "total_units_sold": 186387,
+        "average_units_per_record": 19.176,
+        "median_units_per_record": 18.0,
+        "total_sales_value": 53990199.5,
+        "average_unit_price": 318.333,
+        "average_daily_units": 1035.483,
+        "median_daily_units": 1004.0,
+        "observed_days": 180
+      },
+      {
+        "category": "Beverages",
+        "records": 9720,
+        "total_units_sold": 138055,
+        "average_units_per_record": 14.203,
+        "median_units_per_record": 14.0,
+        "total_sales_value": 23162243.5,
+        "average_unit_price": 180.0,
+        "average_daily_units": 766.972,
+        "median_daily_units": 746.0,
+        "observed_days": 180
+      },
+      {
+        "category": "Snacks",
+        "records": 3240,
+        "total_units_sold": 113074,
+        "average_units_per_record": 34.899,
+        "median_units_per_record": 34.0,
+        "total_sales_value": 10222655.5,
+        "average_unit_price": 95.0,
+        "average_daily_units": 628.189,
+        "median_daily_units": 616.5,
+        "observed_days": 180
+      },
+      {
+        "category": "Grocery",
+        "records": 3240,
+        "total_units_sold": 105797,
+        "average_units_per_record": 32.653,
+        "median_units_per_record": 32.0,
+        "total_sales_value": 14583657.75,
+        "average_unit_price": 145.0,
+        "average_daily_units": 587.761,
+        "median_daily_units": 575.0,
+        "observed_days": 180
+      },
+      {
+        "category": "Household",
+        "records": 3240,
+        "total_units_sold": 68669,
+        "average_units_per_record": 21.194,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 20161578.5,
+        "average_unit_price": 310.0,
+        "average_daily_units": 381.494,
+        "median_daily_units": 375.5,
+        "observed_days": 180
+      }
+    ],
+    "sku_performance": [
+      {
+        "sku_id": "SKU007",
+        "records": 3240,
+        "total_units_sold": 133646,
+        "average_units_per_record": 41.249,
+        "median_units_per_record": 40.0,
+        "total_sales_value": 15214032.0,
+        "average_unit_price": 120.0,
+        "average_daily_units": 742.478,
+        "median_daily_units": 728.5,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU010",
+        "records": 3240,
+        "total_units_sold": 113074,
+        "average_units_per_record": 34.899,
+        "median_units_per_record": 34.0,
+        "total_sales_value": 10222655.5,
+        "average_unit_price": 95.0,
+        "average_daily_units": 628.189,
+        "median_daily_units": 616.5,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU003",
+        "records": 3240,
+        "total_units_sold": 105797,
+        "average_units_per_record": 32.653,
+        "median_units_per_record": 32.0,
+        "total_sales_value": 14583657.75,
+        "average_unit_price": 145.0,
+        "average_daily_units": 587.761,
+        "median_daily_units": 575.0,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU012",
+        "records": 3240,
+        "total_units_sold": 93841,
+        "average_units_per_record": 28.963,
+        "median_units_per_record": 29.0,
+        "total_sales_value": 9363406.5,
+        "average_unit_price": 105.0,
+        "average_daily_units": 521.339,
+        "median_daily_units": 509.5,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU001",
+        "records": 3240,
+        "total_units_sold": 80973,
+        "average_units_per_record": 24.992,
+        "median_units_per_record": 24.0,
+        "total_sales_value": 19987123.0,
+        "average_unit_price": 260.0,
+        "average_daily_units": 449.85,
+        "median_daily_units": 439.0,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU008",
+        "records": 3240,
+        "total_units_sold": 68669,
+        "average_units_per_record": 21.194,
+        "median_units_per_record": 21.0,
+        "total_sales_value": 20161578.5,
+        "average_unit_price": 310.0,
+        "average_daily_units": 381.494,
+        "median_daily_units": 375.5,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU004",
+        "records": 3240,
+        "total_units_sold": 55274,
+        "average_units_per_record": 17.06,
+        "median_units_per_record": 17.0,
+        "total_sales_value": 9204562.5,
+        "average_unit_price": 175.0,
+        "average_daily_units": 307.078,
+        "median_daily_units": 299.0,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU011",
+        "records": 3240,
+        "total_units_sold": 53352,
+        "average_units_per_record": 16.467,
+        "median_units_per_record": 16.0,
+        "total_sales_value": 5566742.5,
+        "average_unit_price": 110.0,
+        "average_daily_units": 296.4,
+        "median_daily_units": 291.0,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU002",
+        "records": 3240,
+        "total_units_sold": 50140,
+        "average_units_per_record": 15.475,
+        "median_units_per_record": 15.0,
+        "total_sales_value": 24798514.0,
+        "average_unit_price": 520.0,
+        "average_daily_units": 278.556,
+        "median_daily_units": 273.0,
+        "observed_days": 180
+      },
+      {
+        "sku_id": "SKU005",
+        "records": 3240,
+        "total_units_sold": 47622,
+        "average_units_per_record": 14.698,
+        "median_units_per_record": 15.0,
+        "total_sales_value": 11087413.75,
+        "average_unit_price": 245.0,
+        "average_daily_units": 264.567,
+        "median_daily_units": 259.0,
+        "observed_days": 180
+      }
+    ]
+  },
+  "generated_tables": [
+    "daily_demand.csv",
+    "monthly_demand.csv",
+    "weekday_demand.csv",
+    "region_performance.csv",
+    "state_performance.csv",
+    "city_performance.csv",
+    "store_performance.csv",
+    "category_performance.csv",
+    "sku_performance.csv",
+    "product_performance.csv",
+    "month_of_year_demand.csv",
+    "promotion_demand_comparison.csv",
+    "holiday_demand_comparison.csv",
+    "closing_stock_pressure.csv",
+    "missingness.csv",
+    "store_sku_coverage.csv",
+    "demand_outliers_iqr.csv",
+    "numeric_correlations.csv"
+  ],
+  "interactive_dashboard_created": true
+}

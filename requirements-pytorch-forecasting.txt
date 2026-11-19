@@ -1,0 +1,6 @@
+# Part 4 Temporal Fusion Transformer using PyTorch Forecasting.
+# Install a compatible CPU/CUDA PyTorch build first: https://pytorch.org/get-started/locally/
+-r requirements.txt
+torch>=2.2
+pytorch-forecasting>=1.0
+lightning>=2.2

@@ -1,0 +1,4 @@
+# Part 7 interactive dashboard stack. Dash 4.x is supported; DataTable is not used.
+-r requirements.txt
+dash>=3.0,<5.0
+plotly>=5.22

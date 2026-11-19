@@ -1,0 +1,4 @@
+# Darts package migration: darts>=0.41 replaces the legacy u8darts PyPI package.
+# Keep this optional stack separate from PyTorch Forecasting.
+-r requirements.txt
+darts>=0.41.0

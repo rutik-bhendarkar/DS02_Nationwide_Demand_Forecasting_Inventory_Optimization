@@ -1,0 +1,4 @@
+# Part 6 inventory optimization
+-r requirements.txt
+ortools>=9.10,<10
+scipy>=1.11,<2

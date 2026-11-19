@@ -1,0 +1,43 @@
+{
+  "part": "Part 7 - Interactive Plotly Dash Dashboard",
+  "implementation_status": "implemented; live Dash runtime install/launch pending on target Windows machine",
+  "source_label": "SYNTHETIC DEVELOPMENT DATA",
+  "source_file": "nationwide_retail_daily_sales_synthetic.csv",
+  "sales_rows": 38880,
+  "forecast_rows": 4968,
+  "inventory_policy_rows": 216,
+  "filter_dimensions": [
+    "region",
+    "state",
+    "store_id",
+    "category",
+    "sku_id",
+    "date_range"
+  ],
+  "kpis": {
+    "total_units": 882002.0,
+    "average_daily_units": 4900.011111111111,
+    "stores": 18,
+    "skus": 12,
+    "forecast_rows": 4968,
+    "forecast_wape_pct": 13.39888416440087,
+    "inventory_policies": 216,
+    "reorder_candidates": 70,
+    "selected_order_lines": 11,
+    "ordered_units": 4998.0,
+    "planned_order_value_inr": 389400.0,
+    "on_hand_units": 38820.0
+  },
+  "views": [
+    "demand and held-out LightGBM forecast",
+    "regional demand",
+    "top SKU demand",
+    "inventory risk",
+    "on-hand versus reorder point",
+    "supplier purchase order value",
+    "selected replenishment recommendations"
+  ],
+  "dashboard_server_launched_in_build_environment": false,
+  "runtime_note": "Dash could not be installed in the offline build environment; install requirements-dashboard.txt and run scripts/run_dashboard.py on Windows.",
+  "automated_test_suite": "62 passed"
+}

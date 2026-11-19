@@ -1,0 +1,6 @@
+# Part 4 statistical + gradient-boosting forecasting models.
+-r requirements.txt
+prophet>=1.1.6
+lightgbm>=4.5
+scikit-learn>=1.4,<2.0
+joblib>=1.3

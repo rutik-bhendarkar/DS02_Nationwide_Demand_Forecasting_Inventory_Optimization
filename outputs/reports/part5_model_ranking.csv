@@ -1,0 +1,2 @@
+validation_rank,model,split,n_observations,mae,rmse,wape_pct,smape_pct,bias_pct,r2,selected,validation_wape_improvement_vs_baseline_pct
+1,LightGBM,validation,4968,3.0311721292446823,4.130326407362418,13.122506133088974,13.465436303613703,-1.3649364470906862,0.8617144451517315,True,30.04987394050734

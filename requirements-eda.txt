@@ -1,0 +1,3 @@
+# Optional Part 2 dependency for the interactive EDA HTML dashboard.
+-r requirements.txt
+plotly>=5.22

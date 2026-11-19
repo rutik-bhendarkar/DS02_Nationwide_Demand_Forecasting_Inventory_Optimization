@@ -1,0 +1,9 @@
+{
+  "is_valid": true,
+  "row_count": 38880,
+  "column_count": 21,
+  "missing_value_count": 0,
+  "duplicate_business_key_count": 0,
+  "errors": [],
+  "warnings": []
+}

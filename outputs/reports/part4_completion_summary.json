@@ -1,0 +1,144 @@
+{
+  "part": "Part 4 \u2014 Forecasting Models",
+  "data_source": "Bundled synthetic development dataset; not real retailer data.",
+  "models": {
+    "lightgbm": {
+      "model": "LightGBM",
+      "status": "trained",
+      "splits": {
+        "validation": {
+          "n_observations": 4968,
+          "mae": 3.0311721292446823,
+          "rmse": 4.130326407362418,
+          "wape_pct": 13.122506133088974,
+          "smape_pct": 13.465436303613703,
+          "bias_pct": -1.3649364470906866,
+          "r2": 0.8617144451517315
+        },
+        "test": {
+          "n_observations": 4968,
+          "mae": 3.1750878386757098,
+          "rmse": 4.402708794490792,
+          "wape_pct": 13.39888416440087,
+          "smape_pct": 13.520877347445975,
+          "bias_pct": -2.0767865529921137,
+          "r2": 0.8500273147428787
+        }
+      },
+      "validation_predictions_path": "outputs/forecasts/validation_lightgbm_predictions.csv",
+      "test_predictions_path": "outputs/forecasts/test_lightgbm_predictions.csv",
+      "model_path": "models/trained/lightgbm_demand_regressor.joblib",
+      "target": "target_units_sold",
+      "feature_count": 44,
+      "features": [
+        "store_id_code",
+        "sku_id_code",
+        "region_code",
+        "state_code",
+        "city_code",
+        "category_code",
+        "supplier_id_code",
+        "year",
+        "quarter",
+        "month",
+        "week_of_year",
+        "day_of_month",
+        "day_of_year",
+        "day_of_week",
+        "is_weekend",
+        "is_month_start",
+        "is_month_end",
+        "month_sin",
+        "month_cos",
+        "weekday_sin",
+        "weekday_cos",
+        "series_age_days",
+        "unit_price_known",
+        "discount_pct_known",
+        "promo_flag_known",
+        "holiday_flag_known",
+        "price_after_discount_known",
+        "promo_discount_interaction",
+        "units_sold_lag_1d",
+        "units_sold_lag_7d",
+        "units_sold_lag_14d",
+        "units_sold_lag_28d",
+        "units_sold_rolling_7d_mean",
+        "units_sold_rolling_7d_std",
+        "units_sold_rolling_7d_sum",
+        "units_sold_rolling_7d_count",
+        "units_sold_rolling_14d_mean",
+        "units_sold_rolling_14d_std",
+        "units_sold_rolling_14d_sum",
+        "units_sold_rolling_14d_count",
+        "units_sold_rolling_28d_mean",
+        "units_sold_rolling_28d_std",
+        "units_sold_rolling_28d_sum",
+        "units_sold_rolling_28d_count"
+      ],
+      "categorical_code_features": [
+        "store_id_code",
+        "sku_id_code",
+        "region_code",
+        "state_code",
+        "city_code",
+        "category_code",
+        "supplier_id_code"
+      ],
+      "train_rows": 22896,
+      "validation_rows": 4968,
+      "test_rows": 4968,
+      "best_iteration": 165,
+      "baseline_7_day_lag_validation": {
+        "n_observations": 4968,
+        "mae": 4.333333333333333,
+        "rmse": 5.912029549803145,
+        "wape_pct": 18.759803408972083,
+        "smape_pct": 19.129143017485113,
+        "bias_pct": -0.5141343372024121,
+        "r2": 0.7166773724848146
+      },
+      "baseline_7_day_lag_test": {
+        "n_observations": 4968,
+        "mae": 4.5466988727858295,
+        "rmse": 6.308334848977794,
+        "wape_pct": 19.187088553833085,
+        "smape_pct": 19.441790245741768,
+        "bias_pct": -0.23784242939052877,
+        "r2": 0.6921056490172703
+      },
+      "training_note": "Trained only on the chronological training split. Validation is used for early stopping. Test metrics are reported once on the untouched chronological test split. Predictions are rolling one-step-ahead: Part 3 lag features contain prior observed demand.",
+      "data_source_note": "Bundled synthetic development dataset; not real retailer data.",
+      "metrics_path": "outputs/reports/part4_lightgbm_metrics.json",
+      "feature_importance_path": "outputs/reports/lightgbm_feature_importance.csv"
+    }
+  },
+  "availability": {
+    "lightgbm": {
+      "available": true,
+      "status": "installed",
+      "import_name": "lightgbm",
+      "install_instruction": "pip install -r requirements-prophet-lightgbm.txt"
+    },
+    "prophet": {
+      "available": false,
+      "status": "not_installed",
+      "import_name": "prophet",
+      "install_instruction": "pip install -r requirements-prophet-lightgbm.txt"
+    },
+    "darts": {
+      "available": false,
+      "status": "not_installed",
+      "import_name": "darts",
+      "install_instruction": "pip install -r requirements-darts.txt"
+    },
+    "pytorch_forecasting": {
+      "available": false,
+      "status": "not_installed",
+      "import_name": "pytorch_forecasting",
+      "install_instruction": "Install a CPU/CUDA-compatible PyTorch build, then pip install -r requirements-pytorch-forecasting.txt"
+    }
+  },
+  "forecast_protocol": "Train split only for fitting; validation split for model selection/early stopping; test split held out for final evaluation. Forecasts are rolling one-step-ahead.",
+  "interpretation": "Only models with status='trained' have measured metrics. Models marked not_installed were not trained and have no performance metrics. Compare models on identical test rows and forecast protocols before selecting a winner."
+}
