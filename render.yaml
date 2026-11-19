@@ -1,0 +1,17 @@
+# Render Blueprint for the DS-02 Nationwide Demand Forecasting &
+# Inventory Optimization Dash dashboard.
+#
+# Create a "Blueprint" web service in Render pointing at this repository.
+# Render injects the PORT environment variable automatically; do not hardcode it.
+
+services:
+  - type: web
+    name: ds02-demand-inventory-dashboard
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install --upgrade pip setuptools wheel && pip install -r requirements-dashboard.txt && pip install -e . --no-deps"
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"

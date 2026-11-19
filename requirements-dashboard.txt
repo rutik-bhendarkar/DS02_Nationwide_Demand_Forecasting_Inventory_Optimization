@@ -2,3 +2,4 @@
 -r requirements.txt
 dash>=3.0,<5.0
 plotly>=5.22
+gunicorn>=21.0,<23.0

@@ -342,3 +342,68 @@ Then open `http://127.0.0.1:8050`. Run the final release check explicitly with:
 ```
 
 The readiness report is saved to `outputs/final/release_readiness.json`. A successful file-level release check does not imply that optional Prophet, Darts or PyTorch Forecasting models were trained. Check `outputs/reports/part4_model_status.json`; each model's actual status is recorded there. The bundled dataset remains synthetic development data.
+
+## Deployment on Render (production)
+
+The dashboard deploys to Render as a Python web service using the repository-root
+[`render.yaml`](render.yaml) Blueprint. No code changes are required to deploy.
+
+**What is deployed**
+
+- **Entry point:** `wsgi.py` builds the Dash application object via
+  `create_app()` from `src/demand_inventory/dashboard/app.py` and exposes its
+  Flask server object (`app.server`) as `application` for gunicorn.
+- **Bind address:** the app binds to host `0.0.0.0` and reads the port from the
+  `PORT` environment variable, which Render injects automatically.
+- **Production server:** gunicorn, started with
+  `gunicorn --bind 0.0.0.0:$PORT wsgi:application`.
+- **Health endpoint:** `GET /health` returns `{"status": "ok"}` (HTTP 200).
+- **Data and model artifacts:** every required dashboard input is tracked in
+  GitHub (sample sales CSV, held-out LightGBM predictions, optimized purchase
+  orders, inventory summaries and the trained LightGBM model), so nothing is
+  regenerated or fabricated at deploy time. No secrets or credentials are
+  required.
+
+**Render commands (from `render.yaml`)**
+
+Build command:
+
+```text
+pip install --upgrade pip setuptools wheel && pip install -r requirements-dashboard.txt && pip install -e . --no-deps
+```
+
+Start command:
+
+```text
+gunicorn --bind 0.0.0.0:$PORT wsgi:application
+```
+
+**How to deploy**
+
+1. Push this branch to GitHub.
+2. In Render: **New → Blueprint**, select this repository — Render detects
+   `render.yaml` and creates the web service (free plan, Oregon by default).
+3. Render runs the build command, then starts gunicorn. Open the service URL
+   and add `/health` to verify the application is up.
+
+**Local production check** (gunicorn is Unix-only, so on Windows validate the
+entry point with the Dash development server instead; Render runs gunicorn on
+Linux):
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r .\requirements-dashboard.txt
+.\.venv\Scripts\python.exe .\scripts\run_dashboard.py --host 127.0.0.1 --port 8050
+```
+
+Then open `http://127.0.0.1:8050/` and `http://127.0.0.1:8050/health`.
+On Render, the start command above runs gunicorn on Linux.
+
+**Local development (unchanged)**
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\run_dashboard.py --host 127.0.0.1 --port 8050
+```
+
+`scripts/run_dashboard.py` now defaults to host `0.0.0.0` and reads the port
+from the `PORT` environment variable (fallback `8050`); the Windows helper
+scripts continue to pass `--host 127.0.0.1 --port 8050` explicitly.

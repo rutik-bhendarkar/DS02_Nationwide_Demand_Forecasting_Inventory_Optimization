@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
@@ -16,8 +17,17 @@ from demand_inventory.dashboard.app import create_app  # noqa: E402
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8050)
+    parser.add_argument(
+        "--host",
+        default="0.0.0.0",
+        help="Bind host (default: 0.0.0.0; use 127.0.0.1 for local-only access)",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=int(os.environ.get("PORT", "8050")),
+        help="Bind port (default: PORT environment variable, then 8050)",
+    )
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--sales", type=Path, default=None, help="Optional validated sales CSV")
     parser.add_argument("--forecasts", type=Path, default=None, help="Optional forecast predictions CSV")
